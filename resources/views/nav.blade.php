@@ -11,7 +11,7 @@
                 <form action="{{ route('closeOrder', ['order_id' => auth()->user()->orders()->byStatus(\App\Models\Order::STATUS_DRAFT)->value('id')]) }}"
                       method="POST">
                     @csrf
-                    <button type="submit" class="bg-indigo-500 rounded-lg p-2">PAY</button>
+                    <button type="submit" class="bg-green-500 rounded-lg p-2">PAY</button>
                 </form>
                 <p class="flex items-center ml-2">
                     Total:
