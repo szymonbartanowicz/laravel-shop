@@ -26,7 +26,7 @@ class AppServiceProvider extends ServiceProvider
      */
     public function boot()
     {
-        view()->composer('nav', function($view) {
+        view()->composer(['nav', 'cart'], function($view) {
            $view->with('totalItems', OrderController::getTotalItems());
         });
     }

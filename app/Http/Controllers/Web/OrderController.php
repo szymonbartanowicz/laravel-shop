@@ -30,4 +30,10 @@ class OrderController extends Controller
         $totalItems = $service->getTotalItems($user);
         return $totalItems;
     }
+
+    public function getOrderItems(OrderService $service)
+    {
+        $orderItems = $service->getOrderItems(auth()->id());
+        return view('cart', compact('orderItems'));
+    }
 }

@@ -7,6 +7,7 @@ namespace App\Services;
 use App\Models\Order;
 use App\Models\Product;
 use App\Models\OrderItem;
+use Illuminate\Support\Arr;
 
 
 class OrderService
@@ -124,5 +125,12 @@ class OrderService
             $totalItems = $order->orderItems()->sum('qty');
             return $totalItems;
         }
+    }
+
+    public function getOrderItems($user_id)
+    {
+        $order = Order::byUser($user_id)->byStatus(Order::STATUS_DRAFT)->first();
+        $orderItems = $order->orderItems()->select(['qty', 'product_id'])->get();
+        return $orderItems;
     }
 }

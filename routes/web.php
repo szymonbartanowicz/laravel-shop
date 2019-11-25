@@ -31,6 +31,8 @@ Route::namespace('web')->group(function () {
 
         Route::post('add-item-to-order', 'OrderController@addItemToOrder')->name('addItemToOrder');
         Route::post('close-order', 'OrderController@closeOrder')->name('closeOrder');
+
+        Route::get('cart', 'OrderController@getOrderItems')->name('getCart');
     });
 });
 
