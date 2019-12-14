@@ -11,10 +11,15 @@ class OrderItem extends Model
 {
     protected $fillable = ['order_id', 'product_id', 'qty'];
 
-//    public function order()
-//    {
-//        return $this->hasOne('App\Models\Order');
-//    }
+    public function product()
+    {
+        return $this->belongsTo('App\Models\Product');
+    }
+
+    public function order()
+    {
+        return $this->belongsTo('App\Models\Order');
+    }
 
     public function scopeByOrder($query, $order_id)
     {

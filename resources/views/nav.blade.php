@@ -11,14 +11,14 @@
                 <form action="{{ route('closeOrder', ['order_id' => auth()->user()->orders()->byStatus(\App\Models\Order::STATUS_DRAFT)->value('id')]) }}"
                       method="POST">
                     @csrf
-                    <button type="submit" class="bg-green-500 rounded-lg p-2">PAY</button>
+                    <button type="submit" class="bg-red-500 rounded-lg p-2">PAY</button>
                 </form>
-                <p class="flex items-center ml-2">
+                <a href="{{ route('getCart') }}" class="flex items-center ml-2">
                     Total:
                     <span class="justify-center mx-1">{{ auth()->user()->orders()->byStatus(\App\Models\Order::STATUS_DRAFT)->value('total') }}</span>
                     PLN
                     <span class="rounded-full h-4 w-4 flex items-center justify-center bg-red-500 ml-2 text-xs">{{ $totalItems }}</span>
-                </p>
+                </a>
             </div>
         @endif
         <div class="ml-auto">

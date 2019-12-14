@@ -1,4 +1,4 @@
 @extends('app')
 @section('content')
-    {{ $product['name'] }}
+    <h1 class="text-center text-3xl">{{ $product['name'] }}</h1>
 @endsection
